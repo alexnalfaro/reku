@@ -21,7 +21,7 @@ public class GestorBD
 			con = DriverManager.getConnection(url, user, password);
 			System.out.println("Conectado");
 		} catch (SQLException e) {
-			// TODO Bloque catch generado automáticamente
+			// TODO Bloque catch generado automÃ¡ticamente
 			System.out.println("No se ha podido conectar a la BD");
 		}		
 	}
@@ -41,7 +41,7 @@ public class GestorBD
 			}
 			return origenes;
 		} catch (SQLException e) {
-			// TODO Bloque catch generado automáticamente
+			// TODO Bloque catch generado automÃ¡ticamente
 			e.printStackTrace();
 		}
 		return null;
@@ -64,7 +64,7 @@ public class GestorBD
 			}
 			return destinos;
 		} catch (SQLException e) {
-			// TODO Bloque catch generado automáticamente
+			// TODO Bloque catch generado automÃ¡ticamente
 			e.printStackTrace();
 		}
 		return null;
@@ -76,7 +76,7 @@ public class GestorBD
 			con.close();
 			System.out.println("Sesion cerrada");
 		} catch (SQLException e) {
-			// TODO Bloque catch generado automáticamente
+			// TODO Bloque catch generado automÃ¡ticamente
 			e.printStackTrace();
 		}
 	}

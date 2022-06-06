@@ -26,6 +26,8 @@ public class Visual extends JFrame implements ActionListener
 {
 	GestorBD GBD;
 	ButtonGroup BG;
+	JRadioButton boton;
+	String botonseleccionado;
 	public Visual()
 	{
 		this.setTitle("EJERCICIO-EXAMEN");
@@ -64,6 +66,8 @@ public class Visual extends JFrame implements ActionListener
 		//PANEL NORTE
 		JTextArea text = new JTextArea();
 		JScrollPane sp = new JScrollPane(text);
+		sp.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+		
 		
 		panel_norte.add(sp);
 		panel_este.add(panel_norte,BorderLayout.CENTER);
@@ -88,16 +92,15 @@ public class Visual extends JFrame implements ActionListener
 		//PANEL NORTE
 		panel_arriba.setLayout(new FlowLayout());
 		JLabel label_ruta = new JLabel ("RUTA");
-//		String origenseleccionado = devolverbotonseleccionado(BG);
-//		ArrayList<String>destino = GBD.destinosDesde(origenseleccionado);
-//		JComboBox combo = new JComboBox();
-//		for (int i=0;i<destino.size();i++)
-//		{
-//			combo.addItem(destino.get(i));
-//		}
-		JButton buttonanadir = new JButton ("Añadir");
+		ArrayList<String>destino = GBD.destinosDesde(botonseleccionado);
+		JComboBox combo = new JComboBox();
+		for (int i=0;i<destino.size();i++)
+		{
+			combo.addItem(destino.get(i));
+		}
+		JButton buttonanadir = new JButton ("AÃ±adir");
 		panel_arriba.add(label_ruta);
-//		panel_arriba.add(combo);
+		panel_arriba.add(combo);
 		panel_arriba.add(buttonanadir);
 		panel_centro.add(panel_arriba,BorderLayout.NORTH);
 		
@@ -121,11 +124,11 @@ public class Visual extends JFrame implements ActionListener
 		for (int i=0;i<b.length;i++)
 		{
 			b[i] = new JRadioButton(a.get(i));
+			boton = b[i];
+			botonseleccionado = boton.getText();
 			BG.add(b[i]);
 			panel_oeste.add(b[i]);
 		}
-		
-		
 	}
 	
 	
@@ -136,7 +139,7 @@ public class Visual extends JFrame implements ActionListener
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		// TODO Apéndice de método generado automáticamente
+		// TODO ApÃ©ndice de mÃ©todo generado automÃ¡ticamente
 		
 	}
 
